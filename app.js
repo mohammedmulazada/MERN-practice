@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
+const dotenv = require('dotenv').config()
 
 const users = require('./routes/api/users')
 const profile = require('./routes/api/profile')
@@ -9,7 +10,8 @@ const posts = require('./routes/api/posts')
 const port = process.env.port || 3000
 
 // DB Config
-const db = require('./config/keys').mongoURI
+// const db = require('./config/keys').mongoURI
+const db = process.env.mongoURI
 
 // Connect to MongoDB
 mongoose
